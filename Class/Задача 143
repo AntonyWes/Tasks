@@ -1,0 +1,63 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int compare_num(string a, string b)
+{
+	int ASize = a.size();
+	int BSize = b.size();
+	if (ASize > BSize) return 1;
+	else if (ASize < BSize) return 2;
+	else {
+		for (int i = 0; i < ASize; i++)
+		{
+			if (a[i] > b[i]) return 1;
+			else if (a[i] < b[i]) return 2;
+		}
+		return 0;
+	}
+}
+
+int main()
+{
+	string a;
+	string b;
+	string c;
+	int aAmass;
+	int bAmass;
+	int compare_result;
+	int n = 0;
+	cin >> a;
+	cin >> b;
+	int ASize = a.size();
+	int BSize = b.size();
+	char result[10000];
+	bool zero_cout = false;
+
+
+	compare_result = compare_num(a, b);
+	if (compare_result == 0) {
+		cout << "0";
+		return 0;
+	}
+	else if (compare_result == 2) {
+		cout << "-";
+		c = a;
+		a = b;
+		b = c;
+	}
+	for (int i = ASize; i >= 0; i--)
+	{
+		result[i] = a[i] - n - b[i];
+		if (result[i] < 0) {
+			n = 1;
+			result[i] += 10;
+		}
+		else n = 0;
+	}
+	for (int i = 0; i < ASize; i++) 
+	{
+		if (zero_cout || not zero_cout && result[i] != 0) cout << result[i]+'0'-48;
+	}
+}
