@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int a;
+	unsigned long long factorial = 1;
+	unsigned long long result = 0;
+	cin >> a;
+	if (a > 200)
+	{
+		cout << " Число больше 2-х";
+	}
+	else 
+	{
+		for (int i = 1;i <= a;i++)
+		{
+			factorial *= i;
+			result += factorial;
+		}
+		cout << result;
+	}
+	return 0;
+}
+/*
+1 1
+2 3
+3 9
+*/
