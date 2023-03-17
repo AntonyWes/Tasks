@@ -12,6 +12,7 @@ int main()
 	cin >> a >> b;
 	int digits;
 	int count;
+	bool flag = true;
 	for (int i = a; i <= b;i++) 
 	{
 		digits = i;
@@ -28,8 +29,14 @@ int main()
 			sum += pow(digits % 10, count);
 			digits /= 10;
 		}
-		if (sum == i) cout <<  sum << " ";
+		if (sum == i)
+		{
+			cout << sum << " ";
+			flag = false;
+		}
 	}
+	if (flag) cout << "-1";
 
 	
 }
+
